@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import './ContactsForm.css';
+import "./EditContactsForm.css";
+
+
 
 class ContactsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      phoneNumber: "",
-      location: "",
+      name: props.contact.name || "",
+      phoneNumber: props.contact.phoneNumber || "",
+      location: props.contact.location || "",
+      id: props.contact.id || "",
     };
   }
 
@@ -21,22 +24,22 @@ class ContactsForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addContact(this.state);
-    alert("Contact added")
+    this.props.editContact(this.state);
+    alert("Contact edited")
     this.setState({
         name: "",
         phoneNumber: "",
         location: ""
-    })
+    });
+    this.props.closeModal();
   }
 
   render() {
     return (
-        <form onSubmit={this.handleSubmit} className="contactForm">
-            <h1>Create Contact</h1>
+        <form onSubmit={this.handleSubmit} className="edit-contactForm">
             <div>
             <label htmlFor="name">Name: </label><br/>
-            <input className="inputField"
+            <input className="edit-inputField"
                 type="text"
                 name="name"
                 value={this.state.name}
@@ -45,7 +48,7 @@ class ContactsForm extends Component {
             </div>
             <div>
             <label htmlFor="phoneNumber">Phone Number: </label><br/>
-            <input className="inputField"
+            <input className="edit-inputField"
                 type="number"
                 name="phoneNumber"
                 value={this.state.phoneNumber}
@@ -54,15 +57,15 @@ class ContactsForm extends Component {
             </div>
             <div>
             <label htmlFor="locaton">Location: </label><br/>
-            <input className="inputField"
+            <input className="edit-inputField"
                 type="text"
                 name="location"
                 value={this.state.location}
                 onChange={this.handleChange}
             />
             </div>
-            <div className="sub">
-            <button className="submit">Add Contact</button>
+            <div className="edit-sub">
+            <button className="btn btn-success edit-submit">Save Changes</button>
             </div>
         </form>
     );
