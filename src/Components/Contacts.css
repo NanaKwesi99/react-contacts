@@ -1,0 +1,16 @@
+.contact {
+    padding: 0rem 2rem;
+}
+
+.contact h3, p {
+    background-color: inherit;
+}
+
+.contact-btn {
+    background-color: inherit;
+}
+
+.edit , .delete {
+    width: 10%;
+    font-weight: bolder;
+}

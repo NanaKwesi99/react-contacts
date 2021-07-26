@@ -1,0 +1,44 @@
+    .contactForm {
+    background-color: pink;
+    color: white;
+    max-width: 30rem;
+    padding: 2rem;
+    border-radius: 10px 10px 0px 0px;
+  }
+  
+  .contactForm h1 {
+    text-align: center;
+  }
+  
+  .inputField {
+    padding: 10px;
+    margin-top: 5px;
+    width: 20rem;
+  }
+  
+  .inputField:hover {
+    margin-left: 10px;
+    background-color: darkgrey;
+    color: snow;
+    transition: all;
+  }
+  
+  .submit {
+    background-color: wheat;
+    color: black;
+    padding: 10px;
+    font-weight: bolder;
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  
+  .submit:hover {
+    margin-left: 10px;
+    background-color: skyblue;
+    color: snow;
+    transition: all;
+  }
+  
+  .sub {
+    text-align: center;
+  }

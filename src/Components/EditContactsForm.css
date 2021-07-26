@@ -1,0 +1,23 @@
+* {
+    font-weight: normal;
+}
+
+.edit-submit {
+    margin-top: 15px;
+}
+
+.edit-sub {
+    text-align: center;
+}
+
+.edit-inputField {
+    padding: 10px;
+    margin-top: 5px;
+    width: 20rem;
+  }
+
+  .edit-submit {
+      width: 100%;
+      font-weight: bolder;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  }
