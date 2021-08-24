@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Contacts from './Contacts';
 
 const ContactsList = ({contacts, deleteContact, editContact}) => {
@@ -14,5 +15,10 @@ const ContactsList = ({contacts, deleteContact, editContact}) => {
         </div>
     );
 }
+const mapStateToProps = (state) => {
+  return {
+    contact: state.contacts,
+  }
+}
 
-export default ContactsList;
+export default connect(mapStateToProps)(ContactsList);
