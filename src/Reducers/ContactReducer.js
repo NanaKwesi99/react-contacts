@@ -1,20 +1,22 @@
-const initialstate = {
+import { ADD_CONTACT } from '../Actions/ContactActions';
+
+const initialState = {
     users: [
-        // {
-        //   name: 'John',
-        //   email: 'john@gmail.com',
-        //   age: '20'
-        // }
+         {
+           name: 'John',
+           email: 'john@gmail.com',
+           age: '20'
+         }
       ],
     } 
 
-    const ContactsReducer = (state={initialstate}, action)=> { 
+    const ContactReducer = (state=initialState, action)=> { 
         switch (action.type) { 
-            case "ADD_USER": 
-                return state 
+            case ADD_CONTACT: 
+                return  {...state.users,users:[...state.users,action.payload] };
             default: 
-               return state; 
+               return state;  
         }
      };
     
- export default ContactsReducer;
+ export default ContactReducer;
