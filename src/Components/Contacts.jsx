@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import EditContactsForm from './EditContactsForm';
 import './Contacts.css';
+import { deleteContact } from '../Actions/ContactActions';
+import {connect} from 'react-redux';
 
 
 const Contacts = ({contact, deleteContact, editContact }) => {
@@ -38,4 +40,8 @@ const Contacts = ({contact, deleteContact, editContact }) => {
     )
 }
 
-export default Contacts;
+const mapDispatchToProps = {
+  deleteContact: deleteContact
+}
+
+export default connect(null, mapDispatchToProps) (Contacts);
