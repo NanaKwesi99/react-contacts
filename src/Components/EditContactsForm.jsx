@@ -8,9 +8,9 @@ class ContactsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: props.contact.name || "",
-      phoneNumber: props.contact.phoneNumber || "",
-      location: props.contact.location || "",
+      Name: props.contact.Name || "",
+      Phone: props.contact.Phone || "",
+      Location: props.contact.Location || "",
       id: props.contact.id || "",
     };
   }
@@ -28,9 +28,9 @@ class ContactsForm extends Component {
     this.props.editContact(this.state);
     alert("Contact edited")
     this.setState({
-        name: "",
-        phoneNumber: "",
-        location: ""
+        Name: "",
+        Phone: "",
+        Location: ""
     });
     this.props.closeModal();
   }
@@ -42,8 +42,8 @@ class ContactsForm extends Component {
             <label htmlFor="name">Name: </label><br/>
             <input className="edit-inputField"
                 type="text"
-                name="name"
-                value={this.state.name}
+                name="Name"
+                value={this.state.Name}
                 onChange={this.handleChange}
             />
             </div>
@@ -51,8 +51,8 @@ class ContactsForm extends Component {
             <label htmlFor="phoneNumber">Phone Number: </label><br/>
             <input className="edit-inputField"
                 type="number"
-                name="phoneNumber"
-                value={this.state.phoneNumber}
+                name="Phone"
+                value={this.state.Phone}
                 onChange={this.handleChange}
             />
             </div>
@@ -60,8 +60,8 @@ class ContactsForm extends Component {
             <label htmlFor="locaton">Location: </label><br/>
             <input className="edit-inputField"
                 type="text"
-                name="location"
-                value={this.state.location}
+                name="Location"
+                value={this.state.Location}
                 onChange={this.handleChange}
             />
             </div>

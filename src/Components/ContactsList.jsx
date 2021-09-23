@@ -17,7 +17,7 @@ const ContactsList = ({contacts, deleteContact, editContact}) => {
 }
 const mapStateToProps = (state) => {
   return {
-    contact: state.contacts,
+    contacts: state.contacts,
   }
 }
 

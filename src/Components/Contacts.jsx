@@ -18,9 +18,9 @@ const Contacts = ({contact, deleteContact, editContact }) => {
     return (
       <>
         <div className="contact">
-          <h3>Name: {contact.name}</h3>
-          <p>Phone Number: {contact.phoneNumber}</p>
-          <p>Location: {contact.location}</p>
+          <h3>Name: {contact.Name}</h3>
+          <p>Phone Number: {contact.Phone}</p>
+          <p>Location: {contact.Location}</p>
           <div className="contact-btn">
             <button className="btn btn-success edit" onClick={handleShow}>Edit</button>
             <button className="btn btn-danger delete" onClick={handleDelete}>Delete</button>

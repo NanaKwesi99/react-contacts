@@ -23,8 +23,7 @@ class ContactsForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addContact(this.state);
-    alert("Contact added")
+    this.props.addNewContact(this.state);
     this.setState({
         name: "",
         phoneNumber: "",
