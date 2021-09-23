@@ -1,9 +1,10 @@
 const initialState = {
-    users: [
+    contacts: [
          {
-           name: 'John',
-           email: 'john@gmail.com',
-           age: '20'
+           Name: 'John',
+           Phone: '02454576',
+           Location: 'Kumasi',
+           id : '3456iutre6u'
          }
       ],
     } 

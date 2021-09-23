@@ -38,11 +38,13 @@ class App extends Component {
   render() {
     return (
       <div className="completeContact">
-        <ContactsForm addContact={this.handleAddContact} />
+        <ContactsForm 
+        // addContact={this.handleAddContact} 
+        />
         <ContactsList
           contacts={this.state.contacts}
-          deleteContact={this.handleDeleteContact}
-          editContact={this.handleEditContact}
+          // deleteContact={this.handleDeleteContact}
+          // editContact={this.handleEditContact}
         />
       </div>
     );
