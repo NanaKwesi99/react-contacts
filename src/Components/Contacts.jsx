@@ -6,21 +6,21 @@ import { deleteContact } from '../Actions/ContactActions';
 import {connect} from 'react-redux';
 
 
-const Contacts = ({contact, deleteContact, editContact }) => {
+const Contacts = ({contacts, deleteContact, editContact }) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleDelete = (e) => {
-    deleteContact(contact.id);
+    deleteContact(contacts.id);
   }
     return (
       <>
         <div className="contact">
-          <h3>Name: {contact.Name}</h3>
-          <p>Phone Number: {contact.Phone}</p>
-          <p>Location: {contact.Location}</p>
+          <h3>Name: {contacts.Name}</h3>
+          <p>Phone Number: {contacts.Phone}</p>
+          <p>Location: {contacts.Location}</p>
           <div className="contact-btn">
             <button className="btn btn-success edit" onClick={handleShow}>Edit</button>
             <button className="btn btn-danger delete" onClick={handleDelete}>Delete</button>
@@ -33,7 +33,7 @@ const Contacts = ({contact, deleteContact, editContact }) => {
             <Modal.Title>Edit Contact</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <EditContactsForm contact={contact} editContact={editContact} closeModal={handleClose} />
+            <EditContactsForm contact={contacts} editContact={editContact} closeModal={handleClose} />
           </Modal.Body>
         </Modal>
     </>

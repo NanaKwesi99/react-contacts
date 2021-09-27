@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { addContact } from '../Actions/ContactActions'
+import { addContact, getAllcontacts } from '../Actions/ContactActions'
 import './ContactsForm.css';
 
 class ContactsForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      phoneNumber: "",
-      location: "",
+      Name: "",
+      Phone: "",
+      Location: "",
     };
   }
 
@@ -25,10 +25,13 @@ class ContactsForm extends Component {
     e.preventDefault();
     this.props.addNewContact(this.state);
     this.setState({
-        name: "",
-        phoneNumber: "",
-        location: ""
+        Name: "",
+        Phone: "",
+        Location: ""
     })
+  }
+  componentDidMount(){
+    this.props.getAllcontacts()
   }
 
   render() {
@@ -39,8 +42,8 @@ class ContactsForm extends Component {
             <label htmlFor="name">Name: </label><br/>
             <input className="inputField"
                 type="text"
-                name="name"
-                value={this.state.name}
+                name="Name"
+                value={this.state.Name}
                 onChange={this.handleChange}
             />
             </div>
@@ -48,8 +51,8 @@ class ContactsForm extends Component {
             <label htmlFor="phoneNumber">Phone Number: </label><br/>
             <input className="inputField"
                 type="number"
-                name="phoneNumber"
-                value={this.state.phoneNumber}
+                name="Phone"
+                value={this.state.Phone}
                 onChange={this.handleChange}
             />
             </div>
@@ -57,8 +60,8 @@ class ContactsForm extends Component {
             <label htmlFor="locaton">Location: </label><br/>
             <input className="inputField"
                 type="text"
-                name="location"
-                value={this.state.location}
+                name="Location"
+                value={this.state.Location}
                 onChange={this.handleChange}
             />
             </div>
@@ -71,7 +74,8 @@ class ContactsForm extends Component {
 }
 
 const mapDispatchToProps = {
-  addNewContact: addContact
+  addNewContact: addContact,
+  getAllcontacts: getAllcontacts
 }
 
 export default connect(null, mapDispatchToProps)(ContactsForm);
