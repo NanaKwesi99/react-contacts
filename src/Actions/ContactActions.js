@@ -8,7 +8,8 @@ export const addContact = (contact) => {
     return(dispatch, state, {getFirestore})=>{
         getFirestore()
         .collection('contacts')
-        .add(contact).then((docs)=>{
+        .add({...contact, timestamp: getFirestore().FieldValue.serverTimestamp()})
+        .then((docs)=>{
     console.log(docs);
         });
     }
@@ -18,28 +19,40 @@ export const addContact = (contact) => {
     // }
 }
 export const editContact = (updatedContact) => {
-    return {
-        type: "EDIT_CONTACT",
-        payload: updatedContact
+    return(dispatch, state, {getFirestore})=>{
+        getFirestore()
+        .collection('contacts')
+        .doc(updatedContact)
+        .set(updatedContact).
+        then(()=>{})
     }
+    // return {
+    //     type: "EDIT_CONTACT",
+    //     payload: updatedContact
+    // }
 }
 
 export const deleteContact = (contactId) => {
-    return {
-        type: "DELETE_CONTACT",
-        payload: contactId
+    return(dispatch, state, {getFirestore})=>{
+        getFirestore().collection('contacts').doc(contactId).delete().then(()=>{
+
+        })
     }
+    // return {
+    //     type: "DELETE_CONTACT",
+    //     payload: contactId
+    // }
 }
 
 export const getAllcontacts =()=>{
     return(dispatch, state, {getFirestore})=>{
     getFirestore()
-    .collection('contacts')
-    .onSnapshot(
-        (snapshot)=>{
+    .collection('contacts').orderBy('name','desc')
+    .onSnapshot((snapshot)=>{
     let contacts =[];
     snapshot.forEach((doc)=>{
-        contacts.push(doc.data())
+        contacts.push({...doc.data(), id:doc.id})
+        console.log(contacts, (doc))
     });
     dispatch({
         type: SET_ALL_CONTACTS,

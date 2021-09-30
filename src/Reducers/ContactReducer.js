@@ -1,13 +1,7 @@
 import { ADD_CONTACT, SET_ALL_CONTACTS } from "../Actions/ContactActions";
+
 const initialState = {
-    contacts: [
-        //  {
-        //    Name: 'John',
-        //    Phone: '02454576',
-        //    Location: 'Kumasi',
-        //    id : '3456iutre6u'
-        //  }
-      ],
+    contacts: [],
     } 
 
     const contactReducer = (state = initialState, action) => {
